@@ -1,0 +1,54 @@
+# FastAPI and server
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# Database
+sqlalchemy==2.0.23
+alembic==1.12.1
+# psycopg2-binary==2.9.9  # Commented out - using SQLite for local dev
+# asyncpg==0.29.0  # Commented out - using SQLite for local dev
+aiosqlite==0.19.0
+
+# Redis and Celery - Optional for local dev
+# redis==5.0.1
+# celery==5.3.4
+
+# HTTP clients and integrations
+httpx==0.25.1
+requests==2.31.0
+google-auth==2.23.4
+google-auth-oauthlib==1.1.0
+google-auth-httplib2==0.1.1
+google-api-python-client==2.108.0
+
+# AI and NLP
+openai==1.3.5
+# langchain==0.0.335  # Optional for MVP
+# transformers==4.35.2  # Optional for MVP
+# spacy==3.7.2  # Optional for MVP - comment out due to Python 3.13 compatibility
+
+# Data processing
+pandas==2.1.3
+numpy==1.26.2
+python-dateutil==2.8.2
+pytz==2023.3
+
+# Validation and schemas
+pydantic==2.5.0
+pydantic-settings==2.1.0
+email-validator==2.1.0
+
+# Utilities
+python-dotenv==1.0.0
+aiofiles==23.2.1
+icalendar==5.0.11
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+httpx==0.25.1
+

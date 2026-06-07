@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "circa-circadian"
+version = "0.1.0"
+description = "A chronotype-aware scheduler: a transparent two-process alertness model that places demanding tasks at your biological peak."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Azra Bano" }]
+keywords = ["circadian", "chronotype", "scheduling", "two-process-model", "productivity"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+circa-circadian = "circadian.cli:main"
+
+[tool.setuptools]
+packages = ["circadian"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
