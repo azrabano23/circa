@@ -91,7 +91,7 @@ So the product on Earth is: a scheduler that starts from a 60-second quiz and ge
 The same engine is pointed at two high-stakes settings, each on its own branch:
 
 - **[`astronauts`](../../tree/astronauts)** — the NASA SpaceTech line (1st place, national). Recovers circadian phase (CBTmin) from the wearable signals NASA actually collects (Actiwatch activity + light, core temperature) and shows a light **countermeasure** holds phase and recovers **+25% on-shift alertness** vs. uncontrolled drift on a 14-day mission. See [`ASTRONAUTS.md`](ASTRONAUTS.md).
-- **[`diabetes`](../../tree/diabetes)** — **RhythmRX**: estimate a patient's phase from a cortisol spit-strip and time their medication to it. On a phase-delayed patient, personalizing the dose cuts hyperglycemia burden **~47%** (time-in-range 56%→74%) vs. the clinic's fixed "take with breakfast." See [`DIABETES.md`](DIABETES.md).
+- **[`diabetes`](../../tree/diabetes)** — **RhythmRX**: estimate a patient's phase from a cortisol spit-strip and time their medication to it. Grounded in **real CGM data** — across 100 type-2 patients (ShanghaiT2DM, 112k readings) the data shows the dawn phenomenon (+55 mg/dL) and, decisively, that each patient's glucose peak lands at a *different* hour (σ 3.1 h across the whole clock) — there is no universal best dosing time. The personalized-dosing model cuts modelled hyperglycemia burden **~47%** for a phase-shifted patient. See [`DIABETES.md`](DIABETES.md).
 
 ## Business model & go-to-market
 
