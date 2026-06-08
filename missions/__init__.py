@@ -19,3 +19,5 @@ __all__ = [
     "optimal_dose_time",
     "simulate_day",
 ]
+
+from missions import real_analysis, shanghai_data  # real-data layer
