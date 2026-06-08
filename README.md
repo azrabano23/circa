@@ -76,6 +76,23 @@ print(scheduled[0].start, scheduled[0].reason)   # placed near the owl's afterno
 
 **Status, honestly.** The `circadian/` core and the account/task/event/dashboard APIs work end to end. The LLM-assisted features (natural-language task import, an OpenAI-backed scheduler variant) and the Google Calendar OAuth round-trip are scaffolded but not production-hardened — they need credential setup and error handling before they're reliable. The deterministic core is the part to evaluate; the app is the delivery vehicle around it.
 
+## Inputs — where the data actually comes from
+
+The core needs to know your circadian **phase**. Three input tiers, increasingly hands-off:
+
+1. **Today (shipping):** a one-time **chronotype questionnaire** (MEQ-style) + your wake time. Zero hardware, but static.
+2. **Next (wearables):** **Apple Watch / Fitbit / Oura** already expose the signals that estimate phase — sleep timing, skin/wrist temperature, and heart-rate rhythm. Feeding those in personalizes the alertness curve and lets it *track* phase as it shifts (travel, deadlines, bad sleep) instead of assuming a fixed chronotype.
+3. **Clinical-grade:** **salivary cortisol** (a few timed samples) is the cheap gold-standard phase marker — the basis of the RhythmRX strip below.
+
+So the product on Earth is: a scheduler that starts from a 60-second quiz and gets sharper the moment you connect a watch — the wearable is the durable moat, not the calendar UI.
+
+## Applications (branches)
+
+The same engine is pointed at two high-stakes settings, each on its own branch:
+
+- **[`astronauts`](../../tree/astronauts)** — the NASA SpaceTech line (1st place, national). Recovers circadian phase (CBTmin) from the wearable signals NASA actually collects (Actiwatch activity + light, core temperature) and shows a light **countermeasure** holds phase and recovers **+25% on-shift alertness** vs. uncontrolled drift on a 14-day mission. See [`ASTRONAUTS.md`](ASTRONAUTS.md).
+- **[`diabetes`](../../tree/diabetes)** — **RhythmRX**: estimate a patient's phase from a cortisol spit-strip and time their medication to it. On a phase-delayed patient, personalizing the dose cuts hyperglycemia burden **~47%** (time-in-range 56%→74%) vs. the clinic's fixed "take with breakfast." See [`DIABETES.md`](DIABETES.md).
+
 ## Business model & go-to-market
 
 - **Who it's for:** first, students and knowledge workers who already feel the mismatch between their schedule and their energy (the "I'm useless before noon" / "I do my best work at midnight" crowd). Later, employers and universities that schedule shift or rotation work.
